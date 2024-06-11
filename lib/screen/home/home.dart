@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamon/screen/clasroom/classroomdata.dart';
 import 'package:hamon/screen/student/studentdatalist.dart';
 import 'package:hamon/screen/subjects/subjectdata.dart';
+import 'package:hamon/utils/api/apicalls.dart';
 import 'package:hamon/utils/helper/color.dart';
 import 'package:hamon/widget/reusablespacing/reusablespacing.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
@@ -25,8 +27,15 @@ class _HomeViewState extends State<HomeView> {
     }
   ];
   @override
+  void initState() {
+    super.initState();
+    getsubjectfromserver();
+    getstudentsfromserver();
+    getclassroomfromserver();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
@@ -75,6 +84,8 @@ class _HomeViewState extends State<HomeView> {
                           Get.to(() => const StudentDataList());
                         } else if (index == 1) {
                           Get.to(() => const SubjectDataList());
+                        } else if (index == 2) {
+                          Get.to(() => const ClassroomDataList());
                         }
                       },
                       child: Container(

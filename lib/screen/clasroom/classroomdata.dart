@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hamon/models/studentlist.dart';
-import 'package:hamon/models/subjectlist.dart';
+import 'package:hamon/models/classroomlist.dart';
 import 'package:hamon/utils/helper/color.dart';
 import 'package:hamon/widget/reusablespacing/reusablespacing.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
 
-class SubjectDataList extends StatefulWidget {
-  const SubjectDataList({super.key});
+class ClassroomDataList extends StatefulWidget {
+  const ClassroomDataList({super.key});
 
   @override
-  State<SubjectDataList> createState() => _SubjectDataListState();
+  State<ClassroomDataList> createState() => _ClassroomDataListState();
 }
 
-class _SubjectDataListState extends State<SubjectDataList> {
+class _ClassroomDataListState extends State<ClassroomDataList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +27,12 @@ class _SubjectDataListState extends State<SubjectDataList> {
             Threeh(),
             Center(
               child: Heading22font700(
-                heading: "Subject",
+                heading: "Class Rooms",
                 color: blackcolor,
               ),
             ),
             Threeh(),
-            SubjectList(),
+            ClassRoomlist(),
           ],
         ),
       ),

@@ -4,8 +4,9 @@ import 'package:hamon/widget/reusablespacing/reusablespacing.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
 
 class SubjectDetailView extends StatefulWidget {
-  const SubjectDetailView({super.key});
+  const SubjectDetailView({super.key, required this.subjectdata});
 
+  final Map<String, dynamic> subjectdata;
   @override
   State<SubjectDetailView> createState() => _SubjectDetailViewState();
 }
@@ -19,29 +20,33 @@ class _SubjectDetailViewState extends State<SubjectDetailView> {
         scrolledUnderElevation: 0,
         backgroundColor: whitecolor,
       ),
-      body: const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            Threeh(),
-            Center(
+            const Threeh(),
+            const Center(
               child: Heading22font700(
                 heading: "Subject Detail",
                 color: blackcolor,
               ),
             ),
-            TopSpacing(),
-            TopSpacing(),
-            CircleAvatar(
+            const TopSpacing(),
+            const TopSpacing(),
+            const CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage("images/studentpic.png"),
+              backgroundImage: AssetImage("images/sub.png"),
             ),
-            Twoh(),
-            Heading22font400(heading: "History", color: blackcolor),
-            Oneh(),
-            Heading22font400(heading: "Branda Miller", color: blackcolor),
-            Twoh(),
-            Heading13font400(heading: 'Credit : 10', color: blackcolor)
+            const Twoh(),
+            Heading22font400(
+                heading: widget.subjectdata['name'], color: blackcolor),
+            const Oneh(),
+            Heading22font400(
+                heading: widget.subjectdata['teacher'], color: blackcolor),
+            const Twoh(),
+            Heading13font400(
+                heading: "Credits: ${widget.subjectdata['credits']}".toString(),
+                color: blackcolor)
           ],
         ),
       ),

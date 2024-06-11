@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hamon/screen/subjects/subjectdetails.dart';
+import 'package:hamon/screen/clasroom/classroomdetailview.dart';
 import 'package:hamon/utils/controller/getxcontroller.dart';
 import 'package:hamon/utils/helper/color.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
 
-class SubjectList extends StatelessWidget {
-  const SubjectList({super.key});
+class ClassRoomlist extends StatelessWidget {
+  const ClassRoomlist({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Obx(() => ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: subjectlist.length,
+        itemCount: clasroomlist.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
@@ -20,8 +20,8 @@ class SubjectList extends StatelessWidget {
                 const EdgeInsets.only(left: 13, right: 13, top: 7, bottom: 5),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => SubjectDetailView(
-                      subjectdata: subjectlist[index],
+                Get.to(() => ClassroomDetailView(
+                      classroomdata: clasroomlist[index],
                     ));
               },
               child: ClipRRect(
@@ -37,10 +37,10 @@ class SubjectList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Heading17font400(
-                                heading: subjectlist[index]['name'],
+                                heading: clasroomlist[index]['name'],
                                 color: blackcolor),
                             Heading13font400(
-                                heading: subjectlist[index]['teacher'],
+                                heading: clasroomlist[index]['layout'],
                                 color: blackcolor),
                           ],
                         ),
@@ -48,11 +48,10 @@ class SubjectList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Heading17font400(
-                                heading:
-                                    subjectlist[index]['credits'].toString(),
+                                heading: clasroomlist[index]['size'].toString(),
                                 color: blackcolor),
                             const Heading13font400(
-                                heading: "Credit", color: blackcolor),
+                                heading: "Seats", color: blackcolor),
                           ],
                         ),
                       ],

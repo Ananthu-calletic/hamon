@@ -5,7 +5,8 @@ import 'package:hamon/widget/reusablespacing/reusablespacing.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
 
 class StudentDetailView extends StatefulWidget {
-  const StudentDetailView({super.key});
+  const StudentDetailView({super.key, required this.studentdata});
+  final Map<String, dynamic> studentdata;
 
   @override
   State<StudentDetailView> createState() => _StudentDetailViewState();
@@ -20,30 +21,33 @@ class _StudentDetailViewState extends State<StudentDetailView> {
         scrolledUnderElevation: 0,
         backgroundColor: whitecolor,
       ),
-      body: const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            Threeh(),
-            Center(
+            const Threeh(),
+            const Center(
               child: Heading22font700(
                 heading: "Student Detail",
                 color: blackcolor,
               ),
             ),
-            TopSpacing(),
-            TopSpacing(),
-            CircleAvatar(
+            const TopSpacing(),
+            const TopSpacing(),
+            const CircleAvatar(
               radius: 60,
               backgroundImage: AssetImage("images/studentpic.png"),
             ),
-            Twoh(),
-            Heading22font400(heading: "Lourie Thomas", color: blackcolor),
-            Oneh(),
-            Heading22font400(heading: "Age : 22", color: blackcolor),
-            Twoh(),
+            const Twoh(),
+            Heading22font400(
+                heading: widget.studentdata['name'], color: blackcolor),
+            const Oneh(),
+            Heading22font400(
+                heading: "Age : ${widget.studentdata['age'].toString()}",
+                color: blackcolor),
+            const Twoh(),
             Heading13font400(
-                heading: 'louriethomas@example.com', color: blackcolor)
+                heading: widget.studentdata['email'], color: blackcolor)
           ],
         ),
       ),

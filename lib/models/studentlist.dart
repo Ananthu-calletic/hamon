@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:hamon/screen/student/studentdetailpage.dart';
+import 'package:hamon/utils/controller/getxcontroller.dart';
 import 'package:hamon/utils/helper/color.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
 
@@ -9,9 +10,9 @@ class StudentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Obx(() => ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: 14,
+        itemCount: studentdatalist.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
@@ -19,14 +20,16 @@ class StudentList extends StatelessWidget {
                 const EdgeInsets.only(left: 13, right: 13, top: 7, bottom: 5),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => const StudentDetailView());
+                Get.to(() => StudentDetailView(
+                      studentdata: studentdatalist[index],
+                    ));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                   color: grey,
-                  child: const Padding(
-                    padding: EdgeInsets.all(10.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -34,13 +37,16 @@ class StudentList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Heading17font400(
-                                heading: "Lourie Thomas", color: blackcolor),
+                                heading: studentdatalist[index]['name'],
+                                color: blackcolor),
                             Heading13font400(
-                                heading: "Lourie Thomas", color: blackcolor),
+                                heading: studentdatalist[index]['email'],
+                                color: blackcolor),
                           ],
                         ),
                         Heading17font400(
-                            heading: "Age : 22", color: blackcolor),
+                            heading: "Age : ${studentdatalist[index]['age']}",
+                            color: blackcolor),
                       ],
                     ),
                   ),
@@ -48,6 +54,6 @@ class StudentList extends StatelessWidget {
               ),
             ),
           );
-        });
+        }));
   }
 }

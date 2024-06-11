@@ -6,4 +6,5 @@ const pastalgreen = Color(0xffAAC9BF);
 const pastalblue = Color(0xffD8EBFD);
 const pastelred = Color(0xffFFE0DD);
 const pastelyellow = Color(0xffFFF3D9);
+const green = Color(0xff0FAB76);
 const grey = Color(0xffD1D1D1);
