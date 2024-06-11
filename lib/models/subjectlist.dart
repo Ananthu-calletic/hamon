@@ -23,6 +23,7 @@ class SubjectList extends StatelessWidget {
                 Get.to(() => SubjectDetailView(
                       subjectdata: subjectlist[index],
                     ));
+                selectedsubject.value = subjectlist[index]['name'];
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),

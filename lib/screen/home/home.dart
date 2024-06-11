@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamon/screen/clasroom/classroomdata.dart';
+import 'package:hamon/screen/registration/registrationhome.dart';
 import 'package:hamon/screen/student/studentdatalist.dart';
 import 'package:hamon/screen/subjects/subjectdata.dart';
 import 'package:hamon/utils/api/apicalls.dart';
@@ -86,6 +87,8 @@ class _HomeViewState extends State<HomeView> {
                           Get.to(() => const SubjectDataList());
                         } else if (index == 2) {
                           Get.to(() => const ClassroomDataList());
+                        } else {
+                          Get.to(() => const Registrationhome());
                         }
                       },
                       child: Container(

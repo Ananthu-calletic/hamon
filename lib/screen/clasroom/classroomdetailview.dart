@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hamon/screen/subjects/subjectdata.dart';
 import 'package:hamon/utils/helper/color.dart';
 import 'package:hamon/widget/reusablespacing/reusablespacing.dart';
 import 'package:hamon/widget/reusabletext/reusabletext.dart';
@@ -49,16 +51,21 @@ class _ClassroomDetailViewState extends State<ClassroomDetailView> {
                     const Heading17font400(
                         heading: 'Add Subject', color: blackcolor),
                     const Spacer(),
-                    Container(
-                      width: width * .2,
-                      height: height * .05,
-                      decoration: BoxDecoration(
-                          color: pastalgreen,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: const Center(
-                        child: Heading17font600(
-                          heading: 'Add',
-                          color: green,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const SubjectDataList());
+                      },
+                      child: Container(
+                        width: width * .2,
+                        height: height * .05,
+                        decoration: BoxDecoration(
+                            color: pastalgreen,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: const Center(
+                          child: Heading17font600(
+                            heading: 'Add',
+                            color: green,
+                          ),
                         ),
                       ),
                     ),

@@ -23,6 +23,7 @@ class StudentList extends StatelessWidget {
                 Get.to(() => StudentDetailView(
                       studentdata: studentdatalist[index],
                     ));
+                selectedstudent.value = studentdatalist[index]['name'];
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
